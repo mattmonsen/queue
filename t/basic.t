@@ -24,6 +24,7 @@ isa_ok($queue_item, 'QueueItem');
 ok($queue_item->has_flag('claimed') == 1, 'relevant_id 1 has flag "claimed"');
 ok($queue_item->has_flag('attempt_2') == 0, 'relevant_id 1 does not have flag "attempt_2"');
 is($queue->size(), 2, 'queue is at size 2');
+ok($queue_item->can_assign() == 0, 'cannot assign current queue_item');
 
 ok($queue->enqueue($queue_item) == 1, 'add item back to the queue');
 is($queue->size(), 3, 'queue is at size 3');

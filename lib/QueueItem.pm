@@ -29,6 +29,11 @@ sub has_flag {
     return defined $self->flags->{$flag};
 }
 
+sub can_assign {
+    my $self = shift;
+    return $self->has_flag('claimed') ? 0 : 1;
+}
+
 sub _get_flags {
     my $self = shift;
     my $id   = shift;
